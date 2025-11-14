@@ -35,6 +35,12 @@ jobs:
         uses: sonarsource/sonarqube-scan-action@master
         with: 
           pollingTimeoutSec: 600
+          args:
+            -Dsonar.organization=${{ secrets.SONAR_ORG_KEY }}
+            -Dsonar.host.url=${{ secrets.SONAR_CLOUD_URL }}
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+            -Dsonar.organization=${{ secrets.SONAR_ORG_KEY }}
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJ_KEY }}
         env: 
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_CLOUD_URL }}
