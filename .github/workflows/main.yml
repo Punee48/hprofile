@@ -18,3 +18,15 @@ jobs:
 
       - name: Setup Sonar
         uses: warchant/setup-sonar-scanner@v7
+
+      - name: SonarQube Scan
+        run: sonar-scanner
+          -Dsonar.host.url=${{ secrets.SONAR_CLOUD_URL }}
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          -Dsonar.organization=${{ secrets.SONAR_ORG_KEY }}
+          -Dsonar.projectKey=${{ secrets.SONAR_PROJ_KEY }}
+          -Dsonar.sources=src/
+          -Dsonar.junit.reportPaths=target/surefire-reports/
+          -Dsonar.jacoco.reportPaths=target/jacoco.exec
+          -Dsonar.checkstyle.reportPaths=target/checkstyle-result.xml
+          -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/
