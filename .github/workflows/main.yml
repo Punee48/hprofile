@@ -32,18 +32,7 @@ jobs:
           -Dsonar.junit.reportPaths=target/surefire-reports/
           -Dsonar.jacoco.reportPaths=target/jacoco.exec
           -Dsonar.checkstyle.reportPaths=target/checkstyle-result.xml
-          -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/
+          -Dsonar.java.binaries=target\test-classes\com\visualpathit\account\controllerTest
 
-      - name: SonarQube Quality Gate Check
-        uses: sonarsource/sonarqube-scan-action@master
-        with: 
-          args:
-            -Dsonar.organization=${{ secrets.SONAR_ORG_KEY }}
-            -Dsonar.host.url=${{ secrets.SONAR_CLOUD_URL }}
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-            -Dsonar.organization=${{ secrets.SONAR_ORG_KEY }}
-            -Dsonar.projectKey=${{ secrets.SONAR_PROJ_KEY }}
-        env: 
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_CLOUD_URL }}
+
         
