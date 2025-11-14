@@ -6,3 +6,12 @@ jobs:
     steps: 
       - name: Testing Workflow
         run: echo "Workflow executed successfully"
+
+      - name: Checkout the Git Code from the repo
+        uses: actions/checkout@v5
+
+      - name: Maven Test Code
+        run: mvn test
+
+      - name: Maven run CheckStyle command to generate files of QA
+        run: mvn checkstyle:checkstyle
