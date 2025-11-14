@@ -13,9 +13,6 @@ jobs:
       - name: Maven Test Code
         run: mvn test
 
-      - name: Maven Build and Compile the code
-        run: mvn clean compile
-
       - name: Maven run CheckStyle command to generate files of QA
         run: mvn checkstyle:checkstyle
 
